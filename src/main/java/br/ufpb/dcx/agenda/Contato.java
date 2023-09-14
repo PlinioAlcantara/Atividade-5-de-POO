@@ -1,6 +1,7 @@
 package br.ufpb.dcx.agenda;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Contato implements Serializable {
     private String nome;
@@ -12,6 +13,25 @@ public class Contato implements Serializable {
         this.mesAniversario = mes;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Contato contato = (Contato) o;
+
+        if (diaAniversario != contato.diaAniversario) return false;
+        if (mesAniversario != contato.mesAniversario) return false;
+        return Objects.equals(nome, contato.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = nome != null ? nome.hashCode() : 0;
+        result = 31 * result + diaAniversario;
+        result = 31 * result + mesAniversario;
+        return result;
+    }
 
     public int getDiaAniversario() {
         return diaAniversario;
