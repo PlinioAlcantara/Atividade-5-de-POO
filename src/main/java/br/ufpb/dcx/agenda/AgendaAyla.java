@@ -16,7 +16,7 @@ public class AgendaAyla implements Agenda {
         try {
             this.gravador.salvarContatos(this.contatos);
         } catch(Exception e){
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 
@@ -24,7 +24,7 @@ public class AgendaAyla implements Agenda {
         try {
             this.contatos = this.gravador.recuperarContatos();
         } catch (IOException e){
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 
